@@ -1,0 +1,186 @@
+input#client-side-admin-btn{
+	left: -100%;
+	display: none;
+}
+aside#client-side-admin{
+	width: 230px;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	left: -230px;
+	z-index: 9999;
+	padding: 10px 15px;
+	background-color: pink;
+	transition: all 200ms;
+
+	h3{
+		color: #fff;
+	}
+
+	#admin-scroll{
+		width: 100%;
+		height: 90vh;
+    	float: left;
+    	overflow-y: scroll;
+	}
+
+	#admin-scroll::-webkit-scrollbar {
+	    display: none;
+	}
+	 
+	#admin-scroll::-webkit-scrollbar-track {
+	    display: none;
+	}
+	 
+	#admin-scroll::-webkit-scrollbar-thumb {
+	  display: none;
+	}
+	label#client-side-admin-label{
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top: 0px;
+		right: -50px;
+		background-color: pink;
+		transition: all 200ms;
+
+		&:hover{
+			cursor: pointer;
+			background-color: pink;
+			svg{
+				*{
+					fill: #fff;
+				}
+			}
+		}
+		svg{
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: all 200ms;
+			*{
+				fill: #fff;
+				fill-opacity: 1;
+				transition: all 200ms;
+			}
+		}
+	}
+
+	.element-invisible{
+		display: none;
+	}
+
+	.tabs{
+		display: none;
+		margin: 0px;
+		padding: 0px;
+		border: none;
+
+		li, li.active{
+			background-color: transparent;
+			border: none;
+
+			a{
+				background-color: transparent;
+				border: none;
+			}
+
+		}
+	}
+
+	ul, .tabs{
+		width: 100%;
+		float: left;
+		li, li.active{
+			width: 100%;
+			float: left;
+			margin: 0px;
+			color: #fff;
+			border-bottom: 1px solid #fff !important;
+			.views-row{
+				width: 100%;
+				float: left;
+				a:nth-of-type(odd){
+					width: calc(100% - 40px);
+					float: left;
+				}
+
+				a:nth-of-type(even){
+					width: 30px;
+					float: right;
+				}
+			}
+			a, label{
+				width: 100%;
+				display: block;
+				margin: 0px;
+				padding: 10px 0px;
+				color: #fff;
+
+				&:hover{
+					cursor: pointer;
+					color: blue;
+				}
+			}
+
+			.fa{
+				width: auto;
+				position: absolute;
+			    right: 0px;
+			    bottom: 0px;
+			    width: auto;
+			}
+
+			.fa-file-o{
+				right: 30px;
+			}
+
+			input[type="checkbox"]{
+				display: none;
+			}
+
+			.additional-options{
+				height: 0px;
+				overflow: hidden;
+				transition: all 200ms;
+				background-color: pink;
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+
+				.views-field-title, .views-field-edit-node{
+					padding: 0px 5px;
+					border-bottom: 1px solid blue;
+				}
+
+				.views-field-title{
+					width: calc(100% - 40px);
+				}
+
+				.view-field-node-edit{
+					width: 30px;
+				}
+			}
+
+			input[type="checkbox"]:checked ~ .additional-options{
+				height: auto;
+			}
+		}
+	}
+}
+
+input#client-side-admin-btn:checked ~ aside#client-side-admin{
+	left: 0px;
+
+	label#client-side-admin-label{
+		background-color: pink;
+		svg{
+			*{
+				fill: #fff;
+			}
+		}
+	}
+}

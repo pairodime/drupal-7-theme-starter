@@ -1,0 +1,14 @@
+name = My Theme Name Here
+description = Nice description here - developed by Pairodime Productions. <a href="http://www.pairodime.com">pairodime.com</a>
+core = 7.x
+
+regions[content] 			= Content
+regions[sidebar_first] 		= Sidebar First
+
+stylesheets[all][] = lib/fastclick/fastclick.js
+stylesheets[all][] = lib/Swiper/css/swiper.min.css
+stylesheets[all][] = css/style.css
+
+scripts[] = lib/Swiper/dist/swiper.min.js
+scripts[] = js/script.js
+
