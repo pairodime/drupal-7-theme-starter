@@ -1,35 +1,26 @@
-<nav id="navigation">
-  <section>
-      <div class="container">
-          
-      </div>
-    </section>
-</nav>
+<?php include 'components/header.php'; ?>
+<?php include 'components/search-bar.php'; ?>
 <!-- end navigation begin content -->
-    <?php
-    
-    print render($title_prefix);
-    print render($title_suffix);
-    print $messages;
-    print render($page['help']);
+    <main>
+      <?php
+        print render($title_prefix);
+        print render($title_suffix);
+        print $messages;
+        print render($page['help']);
+        global $user;
+        if(drupal_is_front_page()){
+          //if page front
+        }
+        if (!isset($account)) {
+          $account = $user;
+        }
 
-    global $user;
-      if(drupal_is_front_page()){
-        //if page front
-      }
-      if (!isset($account)) {
-        $account = $user;
-      }
-
-      if ($page['content']) {
-          print render($page['content']);
-      }
-    ?>
+        if ($page['content']) {
+            print render($page['content']);
+        }
+      ?>
+    </main>
 <!-- end content begin footer -->
-    <footer id="footer">
-      <section>
-        <div class="container">
-          
-        </div>
-      </section>
-    </footer>
+<?php include 'components/footer.php'; ?>
+<?php include 'components/user-cards.php'; ?>
+<?php include 'components/admin-menu.php'; ?>

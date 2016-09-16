@@ -1,26 +1,61 @@
-*::selection {
-    color: #fff;
-    background-color: #000;
+h1, h2, h3,
+h4, h5, h6,
+p, li, a, 
+th, td, address,
+span, div{
+    font-family: Verdana,Geneva,sans-serif;
+    *{
+        font-family: Verdana,Geneva,sans-serif;
+    }
 }
 
+*::selection {
+    color: #fff;
+    background-color: $primary;
+}
+
+//admin bar
+#admin-menu{
+    display: none;
+}
+
+//olark
+#habla_window_div #habla_topbar_div{
+    background-color: $primary !important;
+}
+
+
+body.admin-menu{
+    margin-top: 0px !important;
+} 
+
+//block__element--modifier
 html {
+    width: 100%;
+    float: left;
     body {
         width: 100%;
         float: left;
-        header{
+        overflow-x: hidden;
+
+        header, main, footer{
+            width: 100%;
+            float: left;
             section {
-                div.container {}
+                width: 100%;
+                float: left;
             }
+        }
+        header {
+            
+            
         }
         main {
-            section {
-                div.container {}
-            }
+            min-height: calc(100vh - 300px);
+            margin-bottom: 10px;
         }
-        footer{
-            section {
-                div.container {}
-            }
+        footer {
+
         }
     }
 }

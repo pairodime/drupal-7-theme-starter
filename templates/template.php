@@ -2,7 +2,7 @@
 
 // Preprocess variables for  html.tpl.php.
 //template_preprocess_html
-function mytheme_preprocess_html(&$variables) {
+function c31617_preprocess_html(&$variables) {
   // Ensure that the $vars['rdf'] variable is an object.
  if (!isset($variables['rdf']) || !is_object($variables['rdf'])) {
     $variables['rdf'] = new StdClass();
@@ -21,7 +21,7 @@ function mytheme_preprocess_html(&$variables) {
 }
 
 // Lets add themes based on URL and other content types
-function mytheme_preprocess_page(&$variables, $hook) {
+function c31617_preprocess_page(&$variables, $hook) {
    // Page template suggestions based off of content types
    if (isset($variables['node'])) { 
                 $variables['theme_hook_suggestions'][] = 'page__type__'. $variables['node']->type;
@@ -45,7 +45,7 @@ function mytheme_preprocess_page(&$variables, $hook) {
 /**
 * theme_menu_link()
 */
-function mytheme_menu_link(array $variables) {
+function c31617_menu_link(array $variables) {
 //add class for li
    $variables['element']['#attributes']['class'][] = 'menu-' . $variables['element']['#original_link']['mlid'];
 //add class for a
@@ -60,13 +60,13 @@ function mytheme_menu_link(array $variables) {
 *
 * @see search-result.tpl.php
 */
-function mytheme_preprocess_search_result(&$variables) {
+function c31617_preprocess_search_result(&$variables) {
   // Add node object to result, so we can display imagefield images in results.
   $n = node_load($variables['result']['node']->nid);
   $n && ($variables['node'] = $n);
 }
 
-function mytheme_preprocess_search_results(&$variables) {
+function c31617_preprocess_search_results(&$variables) {
   $variables['search_results'] = '';
   $resultTypes = array();
    

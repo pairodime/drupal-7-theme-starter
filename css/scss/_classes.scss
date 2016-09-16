@@ -1,4 +1,121 @@
-//div__button--white
-.element__type--modifier{
+.container{
+	width: 100%;
+	max-width: $final;
+	margin: 0px auto;
+	padding: 15px;
 
+	&::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 }
+
+//links
+.link__plain--gray{
+	color: $gray;
+	text-transform: capitalize;
+	padding: 10px;
+	&:hover{
+		color: $primary;
+	}
+}
+
+.link__plain--gray-active{
+	color: $primary;
+}
+
+.link__plain--dark-gray{
+	color: $dk-gray;
+	text-transform: capitalize;
+	padding: 10px;
+	&:hover{
+		color: $secondary;
+	}
+}
+
+.link__plain--dark-gray-active{
+	color: $secondary;
+}
+
+
+.box__link{
+	color: #fff;
+	background-color: $dk-blue;
+	padding: 15px 17px 15px 15px;
+	text-transform: capitalize;
+	&::after{
+		content: "";
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		width: 15px;
+		height: 100%;
+		text-align: center;
+		background-image: url('../images/caret-down.png');
+		background-size: 5px;
+		background-repeat: no-repeat;
+		background-position: center center;
+		transition: all 200ms;
+	}
+	&:hover{
+		color: $primary;
+		background-color: #202028;
+
+		&::after{
+			background-color: #18181F;
+			background-position: center 55%;	
+		}
+	}
+}
+
+.box__link--active{
+	color: $primary;
+	background-color: $blue;
+
+	&::after{
+		background-color: #18181F;
+		background-position: center 55%;	
+	}
+}
+
+//buttons
+@mixin button__primary{
+	padding: 10px 25px;
+	background-color: $primary;
+	color: #fff;
+	text-transform: capitalize;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+	border-radius: 6px;
+
+	&:hover{
+		background-color: darken($primary, 10%);
+		color: #fff;
+		transform: scale(0.95,0.95);
+	}
+}
+
+@mixin button__primary{
+	padding: 10px 25px;
+	background-color: $primary;
+	color: #fff;
+	text-transform: capitalize;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+	border-radius: 6px;
+
+	&:hover{
+		background-color: darken($primary, 10%);
+		color: #fff;
+		transform: scale(0.95,0.95);
+	}
+}
+.button__primary{
+	@include button__primary;
+}
+
+
+
+
+
+
+

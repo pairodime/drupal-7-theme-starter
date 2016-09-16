@@ -1,0 +1,128 @@
+header {
+    background-color: $dk-blue;
+    div.container {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        section.header__tier {
+            //top
+            div#header-logo {
+                width: 60px;
+                float: left;
+                img, svg {
+                    width: auto;
+                    max-width: none;
+                    height: 60px;
+                    float: left;
+                    padding: 10px 0px;
+                }
+            }
+            div#header-search-account-cart {
+                width: calc(100% - 60px);
+                float: left;
+                .header__button {
+                    float: right;
+                    margin: 0px;
+                    padding: 10px 10px;
+                    text-align: center;
+
+                    @media (min-width: $m-phone){
+                        padding: 10px 15px;
+                    }
+                    .cart__status {
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        top: 10px;
+                        right: 14px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $primary;
+                        border-radius: 100%;
+                        color: #fff;
+                        font-size: 6px;
+                        line-height: 6px;
+                        z-index: 2;
+                        .cart__status-item {
+                            color: #fff;
+                        }
+                    }
+                    svg {
+                        width: 20px;
+                    }
+                    .header__button-label {
+                        color: #fff;
+                        display: block;
+                    }
+                    &:hover {
+                        background-color: $blue;
+                        cursor: pointer;
+                        svg {
+                            fill: $primary !important;
+                            * {
+                                fill: $primary !important;
+                            }
+                        }
+                        .header__button-label {
+                            color: $primary;
+                        }
+                    }
+                }
+                .header__button--active {
+                    background-color: $blue;
+                    color: $primary;
+                    svg {
+                        fill: $primary !important;
+                        * {
+                            fill: $primary !important;
+                        }
+                    }
+                    .header__button-label {
+                        color: $primary;
+                    }
+                }
+            }
+            //middle - bottom
+            nav {
+                ul {
+                    li {
+                        display: inline;
+                        a {
+                            display: inline-block;
+                            margin: 0px;
+                            font-size: 10px;
+
+                            @media (min-width: $m-phone){
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        section#header-top {
+            border-bottom: 1px solid $gray;
+        }
+        section#header-bottom {
+            .header__navigation-bar {
+                max-height: 0px;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                transition: all 200ms 300ms;
+            }
+            .header__navigation-bar::-webkit-scrollbar-track {
+                display: none;
+            }
+            .header__navigation-bar::-webkit-scrollbar {
+                display: none;
+            }
+            .header__navigation-bar::-webkit-scrollbar-thumb {
+                display: none;
+            }
+            .header__navigation-bar-active {
+                border-top: 1px solid $gray;
+                max-height: 100px;
+            }
+        }
+    }
+}

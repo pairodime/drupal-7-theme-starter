@@ -1,14 +1,4 @@
-/**
-    function (){} is not the same as =()=>{}
-**/
 
-
-/** detect if mobile device
-*** usage
-if(mobileDevice()){
-    // your code
-}
-***/
 const mobileDevice = () => {
     if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(
         /webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(
@@ -19,11 +9,8 @@ const mobileDevice = () => {
         return false;
     }
 }
- 
-//**notify user - params (title, body, icon)
-*** usage
-notify('myTitle', 'This is a message', '../images/yourImage.png');
-***/
+
+
 const notify = (title, bodyText, iconImage) => {
     let options = {
         body: bodyText,
@@ -39,12 +26,6 @@ const notify = (title, bodyText, iconImage) => {
 
 }
 
-/** if current page
-*** usage
-if(page('elementID')){
-    // your code
-}
-***/
 const page = (id) => {
     if (document.contains(document.getElementById(id))) {
         return true;
@@ -52,21 +33,60 @@ const page = (id) => {
         return false;
     }
 }
-/** apply element styles
-*** usage
-myStyles = {
-    'color' : 'red',
-    'background-color' : 'blue'
+
+const hasClass = (element, className) => {
+	return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
 }
-applyStyle('#element', myStyles)
-***/
-const applyStyle = (element, property) => {
-    let el = document.querySelectorAll(element);
-    for(let i = 0; i < el.length; i++){
-        for(let key in property){
-            if(property.hasOwnProperty(key)){
-                el[i].style[key] = property[key];
-            }
-        }
-    }
+
+const linkActiveClass = (element) =>{
+	let obj = {},
+		link = document.querySelectorAll(element);
+	obj.clearActiveClasses = (activeClass, activeNavClass) =>{
+		for(let i = 0; i < link.length; i++){
+			link[i].classList.remove(activeClass);
+			let navigationID = link[i].getAttribute('href');
+			document.getElementById(navigationID).classList.remove(activeNavClass);
+		}
+	},
+	obj.activeState = (activeClass, activeNavClass) =>{
+		for(let i = 0; i < link.length; i++){
+
+			link[i].addEventListener('click', (event) => {
+				event.preventDefault();
+
+				if(!hasClass(link[i], activeClass)){
+					obj.clearActiveClasses(activeClass, activeNavClass);
+					link[i].classList.add(activeClass);
+					let navigationID = link[i].getAttribute('href');
+					document.getElementById(navigationID).classList.add(activeNavClass);
+				}else{
+					link[i].classList.remove(activeClass);
+					let navigationID = link[i].getAttribute('href');
+					document.getElementById(navigationID).classList.remove(activeNavClass);
+					
+				}
+			});
+		}
+	}
+
+	return obj;
+}
+
+const closeUserCards = () =>{
+	const closeCardBtn 	= document.querySelectorAll('.user-menu__card--close-btn'),
+		  userNav     	= document.querySelectorAll('.card-nav'),
+		  userCard 	  	= document.querySelectorAll('.user-menu__card');
+
+	const hideAllCards = () => {
+		for(let i = 0; i < userCard.length; i++){
+			userCard[i].classList.remove('user-menu__card-active');
+			userNav[i].classList.remove('header__button--active');
+		}
+	}
+
+	for(let i = 0; i < closeCardBtn.length; i++){
+		closeCardBtn[i].addEventListener('click', ()=> {
+			hideAllCards();
+		});
+	}
 }

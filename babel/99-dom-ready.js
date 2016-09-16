@@ -1,26 +1,42 @@
-if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-    }, false);
-}
+window.onload = () =>{
+	//open navigation
+	const mainNav = new linkActiveClass('header .box__link');
+	mainNav.activeState('box__link--active', 'header__navigation-bar-active');
+	//open user cards
+	const userNav = new linkActiveClass('header .card-nav');
+	userNav.activeState('header__button--active', 'user-menu__card-active');
 
-jQuery.conflict();
-jQuery(document).ready(function($){
-    // DOC is loaded - lets fire
-    myFuncEMCA6();
-    oldSchool();
-	const documentState = setInterval(() => {
-        switch (document.readyState) {
-            case 'loading':
-                console.log('document loading');
-            break;
-            case 'interactive':
-                console.log('document ready, but media still loading');
-            break;
-            case 'complete':
-                clearInterval(documentState);
-                // ONly used for JS that needs all assets of page loaded first
-            break;
-        }	
-    }, 100);
-});
+	closeUserCards();
+
+	const searchBar = new linkActiveClass('header #header-search');
+	searchBar.activeState('header__button--active', 'search__bar--active');
+
+	//menu search bar
+	submitSearch();
+
+	window.addEventListener('scroll', () => {
+
+        //console.log(window.innerHeight);
+        let olark = document.getElementById('habla_window_div'),
+            olarkWrapper = document.getElementById('habla_beta_container_do_not_rely_on_div_classes_or_names');
+        if (page('habla_window_div')) {
+            if (olarkWrapper.getBoundingClientRect().top > window.innerHeight && !mobileDevice()) {
+                olark.classList.remove('olarkSet');
+            } else {
+                olark.classList.add('olarkSet');
+            }
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        let olark = document.getElementById('habla_window_div'),
+            olarkWrapper = document.getElementById('habla_beta_container_do_not_rely_on_div_classes_or_names');
+        if (page('habla_window_div')) {
+            if (olarkWrapper.getBoundingClientRect().top > window.innerHeight && !mobileDevice()) {
+                olark.classList.remove('olarkSet');
+            } else {
+                olark.classList.add('olarkSet');
+            }
+        }
+    });
+}

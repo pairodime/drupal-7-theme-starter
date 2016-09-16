@@ -49,20 +49,19 @@ img,svg{
 }
 
 a{
-	color: #000;
+	color: #fff;
 	text-decoration: none;
-	transition: all 200ms;
-
- 	&:hover{
-	 cursor: pointer;
-	 color: #ff0000;
- 	}
+	&:hover{
+		cursor: pointer;
+		color: $primary;
+	}
 }
 
 *{
 	position: relative;
 	box-sizing: border-box;
 	color: #000;
+	transition: all 200ms;
 }
 
 h1, h2, h3,
@@ -71,42 +70,55 @@ p, li, a,
 th, td{
    margin-bottom: 5px;
    letter-spacing: 1px;
+
+   *{
+   		font-size: inherit;
+   		line-height: inherit;
+   		color: inherit;
+   }
 }
 
 h1{
    font-size: 28px;
-   line-height: 42px;
+   line-height: 30px;
 }
 
 h2{
    font-size: 26px;
-   line-height: 39px;
+   line-height: 28px;
 }
 
 h3, thead td{
    font-size: 24px;
-   line-height: 36px;
+   line-height: 26px;
 }
 
 h4{
    font-size: 22px;
-   line-height: 33px;
+   line-height: 24px;
 }
 
 h5{
    font-size: 20px;
-   line-height: 30px;
+   line-height: 22px;
 }
 
 h6{
    font-size: 18px;
-   line-height: 27px;
+   line-height: 20px;
 }
 
 p, li, a,
-td, address, label,
-select, option,
-div{
-   font-size: 12px;
-   line-height: 18px;
+td, address, div,
+input{
+   font-size: 14px;
+   line-height: 16px;
+
+   *{
+   		font-size: inherit;
+   		line-height: inherit;
+   		margin: 0px;
+   		color: inherit; 
+   }
 }
+
